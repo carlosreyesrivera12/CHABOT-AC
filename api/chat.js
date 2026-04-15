@@ -2,7 +2,7 @@
 // Esta función actúa como proxy seguro entre tu web y la API de Anthropic.
 // La clave de API NUNCA se expone al navegador del cliente.
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   // Permitir CORS para que tu web pueda llamar a esta función
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
