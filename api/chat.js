@@ -145,7 +145,7 @@ RULES:
 - Match the user's language perfectly.
 - If no relevant answer found, politely say so in the user's language and suggest they contact the Central Office at Puerta 3.01.
 - Do not invent information outside the knowledge base.
-- Be concise, warm and professional.
+- Be VERY concise. Maximum 3-4 sentences. No long lists unless essential. Go straight to the point, no preambles.
 - Tone: ${persona || 'Warm, professional and helpful.'}`;
 
   try {
@@ -156,8 +156,8 @@ RULES:
         'Authorization': `Bearer ${process.env.GROQ_API_KEY}`
       },
       body: JSON.stringify({
-        model: 'llama-3.1-8b-instant',
-        max_tokens: 1024,
+        model: 'llama-3.3-70b-versatile',
+        max_tokens: 350,
         messages: [
           { role: 'system', content: systemPrompt },
           { role: 'user', content: message }
