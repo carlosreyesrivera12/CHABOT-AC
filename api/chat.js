@@ -1,26 +1,17 @@
-// api/chat.js — Función serverless para Vercel
-// Esta función actúa como proxy seguro entre tu web y la API de Anthropic.
-// La clave de API NUNCA se expone al navegador del cliente.
-
+// api/chat.js — Función serverless para Vercel usando Groq (gratis)
 module.exports = async function handler(req, res) {
-  // Permitir CORS para que tu web pueda llamar a esta función
+
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-  // Responder a preflight OPTIONS
-  if (req.method === 'OPTIONS') {
-    return res.status(200).end();
-  }
-
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Método no permitido' });
-  }
+  if (req.method === 'OPTIONS') return res.status(200).end();
+  if (req.method !== 'POST') return res.status(405).json({ error: 'Método no permitido' });
 
   const { message, context, persona, botName } = req.body;
 
   if (!message || !context) {
-    return res.status(400).json({ error: 'Faltan campos requeridos: message y context' });
+    return res.status(400).json({ error: 'Faltan campos requeridos' });
   }
 
   const systemPrompt = `You are a friendly chatbot named "${botName || 'Asistente'}".
@@ -38,29 +29,30 @@ RULES:
 - Tone: ${persona || 'Be warm, friendly and professional.'}`;
 
   try {
-    const response = await fetch('https://api.anthropic.com/v1/messages', {
+    const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'x-api-key': process.env.ANTHROPIC_API_KEY,   // ← variable de entorno segura
-        'anthropic-version': '2023-06-01'
+        'Authorization': `Bearer ${process.env.GROQ_API_KEY}`
       },
       body: JSON.stringify({
-        model: 'claude-haiku-4-5-20251001',  // modelo rápido y económico para producción
+        model: 'llama-3.1-8b-instant',
         max_tokens: 1024,
-        system: systemPrompt,
-        messages: [{ role: 'user', content: message }]
+        messages: [
+          { role: 'system', content: systemPrompt },
+          { role: 'user', content: message }
+        ]
       })
     });
 
     if (!response.ok) {
       const err = await response.text();
-      console.error('Anthropic error:', err);
+      console.error('Groq error:', err);
       return res.status(502).json({ error: 'Error al contactar la IA', detail: err });
     }
 
     const data = await response.json();
-    const reply = data?.content?.[0]?.text || 'No pude generar una respuesta.';
+    const reply = data?.choices?.[0]?.message?.content || 'No pude generar una respuesta.';
 
     return res.status(200).json({ reply });
 
