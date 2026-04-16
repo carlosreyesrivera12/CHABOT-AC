@@ -72,6 +72,66 @@ A: Sí. El seguro de reposición por rotura o pérdida del producto guardado es 
 [P20] Q: ¿Cuál es la diferencia entre almacenaje estándar y priority?
 A: El servicio priority asegura una entrega más rápida según la prioridad establecida. Ambos incluyen seguro de reposición, siendo el costo diferente según el tipo.
 
+[E1] Q: ¿En qué orden se devuelven los embalajes? ¿Cuándo me devuelven mis cajas? ¿Cuál es el orden de entrega de embalajes?
+A: Los embalajes se devuelven según el orden de prioridad contratado: 1º PRIORITY (primera devolución), 2º FULLGOOD (mercadería con valor), 3º EMPTY (embalajes vacíos, última devolución). Por eso es importante contratar el servicio adecuado según la urgencia que necesite.
+
+[E2] Q: ¿Qué es el servicio Priority de embalaje?
+A: Es el servicio de máxima prioridad. Los embalajes o mercancías con este servicio son los primeros en ser devueltos al stand. Recomendado cuando necesita sus materiales con urgencia durante el montaje o desmontaje.
+
+[E3] Q: ¿Qué es el servicio Fullgood?
+A: Fullgood es el servicio para mercadería con valor. Se devuelve en segundo lugar, después de los Priority. Incluye seguro de reposición acorde al valor de la mercancía almacenada.
+
+[E4] Q: ¿Qué es el servicio Empty?
+A: Empty es el servicio para embalajes vacíos (cajas, fundas, palés vacíos). Es el último en ser devuelto. Ideal para embalajes que no contienen mercancía de valor y no requieren devolución urgente.
+
+[E5] Q: ¿Qué servicio de embalaje me recomienda? ¿Cuál elijo?
+A: Depende de sus necesidades: si necesita sus materiales con urgencia → PRIORITY. Si almacena mercancía con valor → FULLGOOD. Si son embalajes vacíos sin urgencia → EMPTY. Recuerde: el orden de devolución es siempre Priority → Fullgood → Empty.
+
+[E6] Q: ¿Puedo acceder a mi material ya almacenado? ¿Puedo ir a ver mis embalajes retirados?
+A: Sí, pero debe informar primero al Hall Manager de su pabellón para gestionar el acceso. No está permitido ingresar al área de almacenaje sin la presencia del personal de logística de Resa Logistic.
+
+[E7] Q: ¿Puedo retirar algo de mis embalajes almacenados?
+A: Sí, pero únicamente en presencia del personal de logística de Resa Logistic. Está estrictamente prohibido acceder o retirar material sin acompañamiento del personal autorizado, para evitar robos o daños a mercancía de terceros.
+
+[E8] Q: ¿Por qué no puedo entrar solo al almacén?
+A: Por seguridad. No está permitido el acceso sin la presencia del personal de logística para evitar robos o roturas de material de terceros. Siempre debe informar al Hall Manager de su pabellón y esperar a ser acompañado por el personal de Resa Logistic.
+
+[E9] Q: ¿Cómo accedo a mi material almacenado? ¿Cuál es el procedimiento?
+A: El procedimiento es: 1) Informe al Hall Manager de su pabellón que necesita acceder a su material. 2) El Hall Manager coordinará con el personal de logística. 3) Un miembro del personal de Resa Logistic le acompañará al área de almacenaje. 4) Cualquier retirada de material se realiza siempre en presencia del personal autorizado.
+
+[E10] Q: ¿Qué pasa si pierdo un embalaje? ¿El seguro cubre la pérdida?
+A: Sí, en caso de pérdida el seguro cubre según el tipo de servicio contratado: PRIORITY tiene mayor cobertura, FULLGOOD cubre mercadería de valor, EMPTY cubre embalajes vacíos. La cobertura está condicionada al contrato firmado al momento de contratar el servicio.
+
+[E11] Q: Etiqueté mal mi material, ¿qué pasa con el seguro?
+A: Si el cliente etiquetó incorrectamente un material cuyo valor real es superior al declarado en el servicio contratado, la cobertura del seguro quedará condicionada al contrato firmado. Es decir, el seguro solo cubrirá según el tipo de servicio que se contrató y firmó, no según el valor real del material mal etiquetado.
+
+[E12] Q: ¿Qué pasa si declaré un valor incorrecto en mi embalaje?
+A: Si el valor real del material es superior al declarado al contratar el servicio, la indemnización estará limitada a las condiciones del contrato firmado. Para evitar problemas, es fundamental etiquetar correctamente cada bulto y contratar el servicio adecuado (FULLGOOD o PRIORITY) según el valor real de la mercancía.
+
+[E13] Q: ¿Cómo evito problemas con el seguro de mis embalajes?
+A: Para estar correctamente cubierto: 1) Etiquete correctamente cada bulto con la etiqueta oficial. 2) Declare el tipo de mercancía correctamente. 3) Contrate el servicio adecuado según el valor — FULLGOOD para mercancía de valor, PRIORITY para máxima cobertura y urgencia. 4) Conserve el contrato firmado como respaldo.
+
+[E14] Q: ¿Cuáles son los términos y condiciones del servicio de embalaje?
+A: Los términos principales son: FIRESA almacena embalajes correctamente etiquetados hasta el cierre del evento. El cliente debe entregar los embalajes debidamente identificados. El servicio URGENTE/PRIORITY entrega el mismo día del cierre. FIRESA no manipula ni abre los embalajes salvo requerimiento de autoridades. No se acepta responsabilidad por daños por fuerza mayor (incendio, inundación, etc.). IMAGEN:terminos_embalaje
+
+[E15] Q: ¿Qué cubre el seguro de embalaje? ¿Cuánto me pagan si pierdo una caja?
+A: El seguro cubre únicamente el embalaje, NO el contenido. En caso de pérdida, la indemnización máxima es de 100 euros por caja. No se aceptan reclamaciones pasadas 24 horas desde el cierre del evento. FIRESA no es responsable de pérdidas no atribuibles a su negligencia.
+
+[E16] Q: ¿Hasta cuándo puedo reclamar por un embalaje perdido?
+A: Las reclamaciones solo se aceptan hasta 24 horas después del cierre del evento. Pasado ese plazo no se admitirán reclamaciones de embalajes.
+
+[E17] Q: ¿Qué pasa si no pago el servicio de embalaje?
+A: En caso de impago, FIRESA se reserva el derecho de retener los embalajes hasta que el pago se haya efectuado en su totalidad.
+
+[E18] Q: ¿Puedo ver la etiqueta Priority? ¿Cómo es la etiqueta de embalaje?
+A: Aquí puede ver las etiquetas oficiales según el tipo de servicio contratado. IMAGEN:etiqueta_priority
+
+[E19] Q: ¿Cómo es la etiqueta Fullgood?
+A: La etiqueta Fullgood identifica mercadería con valor. IMAGEN:etiqueta_fullgood
+
+[E20] Q: ¿Cómo es la etiqueta Empty?
+A: La etiqueta Empty identifica embalajes vacíos. IMAGEN:etiqueta_empty
+
 [P21] Q: ¿Qué es el servicio de reposicionamiento?
 A: Es un servicio que permite el movimiento y reposicionamiento de material dentro de la fira según sus necesidades.
 
@@ -131,6 +191,30 @@ A: Se recomienda que esté presente o designe a un representante para supervisar
 
 [P40] Q: ¿Qué documentación necesito para contratar servicios?
 A: Principalmente necesita número de expositor/stand, empresa/montador responsable y confirmación de evento. Se firma documentación adicional en la oficina para almacenaje.
+
+[M1] Q: ¿Qué es un apilador? ¿Tienen apiladores? ¿Para qué sirve un apilador?
+A: Sí, ofrecemos alquiler de apiladores. Son aptos para cualquier trayecto de transporte y altura de elevación. Con su chasis estrecho son ágiles y capaces de manipular la carga con especial precisión. Ideales para espacios reducidos en los pabellones. IMAGEN:apilador
+
+[M2] Q: ¿Qué maquinaria tienen disponible? ¿Qué equipos puedo alquilar?
+A: Disponemos de apiladores y forklifts (toros), entre otros equipos. Solicite información en la Oficina Central (Puerta 3.01) o en el Hall Manager de su pabellón. Puede pedirla con o sin conductor. IMAGEN:apilador
+
+[M3] Q: ¿Tienen forklift? ¿Tienen toro? ¿Qué es un toro? ¿Tienen carretilla elevadora?
+A: Sí, ofrecemos alquiler de forklifts (toros/carretillas elevadoras). Son equipos robustos ideales para mover y elevar cargas pesadas dentro de los pabellones. Disponibles con conductor. Solicite en el Hall Manager de su pabellón. IMAGEN:forklift
+
+[M5] Q: ¿Tienen tijera? ¿Tienen plataforma tijera? ¿Qué es una tijera elevadora?
+A: Sí, disponemos de plataformas tijera. Son ideales para trabajos en altura dentro de los pabellones, con una plataforma estable y segura para el operario. Solicite en la Oficina Central (Puerta 3.01) o en el Hall Manager. IMAGEN:tijera
+
+[M6] Q: ¿Tienen plataforma unipersonal? ¿Tienen mástil vertical?
+A: Sí, ofrecemos plataformas unipersonales (mástil vertical). Perfectas para trabajos en altura en espacios reducidos, ideales para una sola persona. Solicite en la Oficina Central (Puerta 3.01) o en el Hall Manager. IMAGEN:unipersonal
+
+[M7] Q: ¿Tienen elevadora de estructura? ¿Tienen eleva estructura?
+A: Sí, disponemos de elevaestruct­uras. Equipo especializado para elevar y posicionar estructuras y materiales pesados con precisión. Solicite en la Oficina Central (Puerta 3.01) o en el Hall Manager. IMAGEN:eleva_estructura
+
+[M8] Q: ¿Tienen brazo articulado? ¿Tienen pluma articulada?
+A: Sí, contamos con brazos articulados. Ideales para trabajos en altura con obstáculos, permiten alcanzar zonas de difícil acceso dentro de los pabellones. Solicite en la Oficina Central (Puerta 3.01) o en el Hall Manager. IMAGEN:brazo_articulado
+
+[M2] Q: ¿Qué maquinaria tienen disponible? ¿Qué equipos puedo alquilar? ¿Qué máquinas tienen?
+A: Disponemos de: apiladores, forklifts (toros), transpaletas eléctricas, plataformas tijera, plataformas unipersonales, elevaestruct­uras y brazos articulados. Con o sin conductor. Solicite en la Oficina Central (Puerta 3.01) o en el Hall Manager. IMAGEN:apilador IMAGEN:forklift IMAGEN:transpaleta IMAGEN:tijera IMAGEN:unipersonal IMAGEN:eleva_estructura IMAGEN:brazo_articulado
 `;
 
   const systemPrompt = `You are a logistics assistant for Fira de Barcelona named "${botName || 'Asistente Logístico'}".
