@@ -124,6 +124,7 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);
       <button class="topic-btn" onclick="askTopic('¿Cómo funciona el almacenaje?')">🗄️ Almacenaje</button>
       <button class="topic-btn" onclick="askTopic('¿Dónde están las oficinas?')">📍 Oficinas</button>
       <button class="topic-btn" onclick="askTopic('¿Cuáles son los horarios?')">🕐 Horarios</button>
+      <button class="topic-btn" onclick="askTopic('¿Cómo entra un camión en la Fira?')">🚛 Acceso camiones</button>
     </div>
 
     <div id="chat-msgs" class="chat-msgs"></div>
@@ -142,6 +143,33 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);
 const API_URL = "https://chabot-ac.vercel.app/api/chat";
 const BOT_NAME = "Resa Logistic";
 
+// Imágenes de maquinaria
+const MAQUINARIA_IMGS = {
+  "apilador": "https://drive.google.com/uc?export=view&id=1btLMu-TN7VxRPnBFmFlbEJAWJaagjTXf",
+  "forklift": "https://drive.google.com/uc?export=view&id=1jxhKQcqHM-nBqn1WL3sovQZ7dM1C6nDs",
+  "transpaleta": "https://drive.google.com/uc?export=view&id=1o6r9gWPuOIfFLoBbDGkuQSNewNm3UD4F",
+  "tijera": "https://drive.google.com/uc?export=view&id=1AQdmiimyN9EZzLK_Ej04-Z9sT4PyiqvU",
+  "unipersonal": "https://drive.google.com/uc?export=view&id=11bwSw-hsyPSTphIPQcseNDkSGq_dsKnC",
+  "eleva_estructura": "https://drive.google.com/uc?export=view&id=1N3oJJiUpMTpaZQZaAO-jvc927uww-POa",
+  "brazo_articulado": "https://drive.google.com/uc?export=view&id=1e9S40KwAJnY_CPwswMT3ZCTSJDuNligy",
+  "formulario_sot": "https://drive.google.com/uc?export=view&id=1h1ggCgFN6qcU7vxQ2-by7P_vWj9WADmy",
+  "trailer_5ejes": "https://drive.google.com/uc?export=view&id=1ZlIGkYmKpPwcpoU58gu0h3CIlGnr47af",
+  "trailer_articulado": "https://drive.google.com/uc?export=view&id=1AOhrpiaVLbZD6kKZKmcdG7hHHz-uyoMB",
+  "terminos_embalaje": "https://drive.google.com/uc?export=view&id=19YGsszOI5nveIQfoqId15T_CyCVUqc9X",
+  "etiqueta_priority": "https://drive.google.com/uc?export=view&id=1nadJv3ed_pFndcT8ojPB3IGl2O-mTllmleV1Ab51_VU",
+  "etiqueta_fullgood": "https://drive.google.com/uc?export=view&id=1gJDh99YYrNosv9XRxwfiS2a2C0hK1U2_kqVmQ6TpWkQ",
+  "etiqueta_empty": "https://drive.google.com/uc?export=view&id=1GE_iWj6A-THzvf7XzGXi7BJGQftrpR6hWUXflfZWZ78"
+};
+
+function renderMsg(text) {
+  // Detecta IMAGEN:clave y la reemplaza por img+texto
+  return text.replace(/IMAGEN:(\w+)/g, (match, key) => {
+    const url = MAQUINARIA_IMGS[key];
+    if (!url) return '';
+    return `<br><img src="${url}" style="max-width:180px;border-radius:12px;margin-top:8px;box-shadow:0 3px 10px rgba(180,150,220,.2);" onerror="this.style.display='none'">`;
+  });
+}
+
 window.onload = () => {
   addMsg('bot', '¡Hola! 👋 Soy el asistente de <strong>Resa Logistic</strong>, partner oficial de logística en Fira de Barcelona. Puedo ayudarte con información sobre descargas, maquinaria, almacenaje y más. ¿En qué puedo ayudarte hoy?');
 };
@@ -158,7 +186,7 @@ function addMsg(who, html) {
   const av = document.createElement('div'); av.className=`av ${who}`;
   av.textContent = who==='bot' ? '🏗️' : '🙂';
   const wrap = document.createElement('div'); wrap.className='bwrap';
-  const bub = document.createElement('div'); bub.className=`bubble ${who}`; bub.innerHTML=html;
+  const bub = document.createElement('div'); bub.className=`bubble ${who}`; bub.innerHTML=renderMsg(html);
   const meta = document.createElement('div'); meta.className='bmeta'; meta.textContent=now;
   wrap.appendChild(bub); wrap.appendChild(meta);
   if(who==='bot'){row.appendChild(av);row.appendChild(wrap);}
