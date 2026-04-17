@@ -129,7 +129,7 @@ A: Sí, hay parking en el recinto. Para vehículos de servicio con booking deben
 A: El Seafood Expo Global es la feria de mariscos y pescados más grande del mundo. Se celebra anualmente en Fira de Barcelona (Gran Via), reuniendo miles de expositores y compradores de todo el mundo del sector pesquero y acuícola.
 
 [EV2] Q: ¿Cuándo es el Seafood Expo Global? ¿Cuáles son las fechas?
-A: El Seafood Expo Global 2025 se celebró del 22 al 24 de abril en Fira de Barcelona (Gran Via). Para fechas de ediciones futuras consulte: https://www.seafoodexpo.com/global/
+A: El Seafood Expo Global 2026 se celebra del 21 al 23 de abril de 2026 en Fira Barcelona Gran Via, L'Hospitalet de Llobregat, Barcelona. Más información en: https://www.seafoodexpo.com/global/
 
 [EV3] Q: ¿Dónde se celebra el Seafood Expo Global?
 A: En el recinto Fira Gran Via de Barcelona, uno de los centros de exposiciones más grandes de Europa. Ubicado en L'Hospitalet de Llobregat, con acceso por metro (L9/L10).
