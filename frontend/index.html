@@ -126,11 +126,11 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);
       <button class="topic-btn" onclick="askTopic(T.btn_camiones)">🚛 <span data-t="btn_camiones_lbl">Acceso camiones</span></button>
     </div>
 
-    <div id="chat-msgs" class="chat-msgs"></div>
-    <div id="lang-det" class="lang-det"></div>
+    <div id="chat-msgs" class="chat-msgs" style="display:flex;"></div>
+    <div id="lang-det" class="lang-det" style="display:block;"></div>
 
     <div class="input-bar">
-      <input type="text" id="ci" placeholder="Escribe tu consulta en cualquier idioma…" onkeydown="if(event.key==='Enter')send()">
+      <input type="text" id="ci" placeholder="Escribe tu consulta en cualquier idioma…" onkeydown="if(event.key==='Enter'){event.preventDefault();send();}">
       <button class="send-btn" id="sbtn" onclick="send()">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
       </button>
@@ -209,7 +209,7 @@ const LANGS = {
     btn_camiones: 'Hoe komt een vrachtwagen de Fira in?', btn_camiones_lbl: 'Vrachtwagentoegang',
   },
   zh: {
-    welcome: 'elcome: '您好！👋 我是Logística的助手，巴塞罗那国际展览中心官方物流合作伙伴。有什么可以帮助您的吗？',,
+    welcome: '您好！👋 我是物流助手。有什么可以帮助您的吗？',
     placeholder: '请用任何语言提问…',
     btn_servicios: '你们提供哪些服务？', btn_servicios_lbl: '服务',
     btn_descargas: '如何预约卸货？', btn_descargas_lbl: '卸货',
@@ -220,7 +220,7 @@ const LANGS = {
     btn_camiones: '卡车如何进入展览中心？', btn_camiones_lbl: '卡车通道',
   },
   ar: {
-    welcome: 'elcome: 'مرحباً! 👋 أنا مساعد Logística، الشريك الرسمي للوجستيات في معرض برشلونة. كيف يمكنني مساعدتك؟',,
+    welcome: 'مرحباً! 👋 أنا مساعد اللوجستيات. كيف يمكنني مساعدتك؟',
     placeholder: 'اكتب سؤالك بأي لغة…',
     btn_servicios: 'ما هي الخدمات المقدمة؟', btn_servicios_lbl: 'الخدمات',
     btn_descargas: 'كيف أحجز عملية تفريغ؟', btn_descargas_lbl: 'التفريغ',
@@ -231,7 +231,7 @@ const LANGS = {
     btn_camiones: 'كيف تدخل الشاحنة إلى المعرض؟', btn_camiones_lbl: 'دخول الشاحنات',
   },
   ja: {
-    welcome: 'elcome: 'こんにちは！👋 私はLogísticaのアシスタントです。バルセロナ見本市の公式物流パートナーです。何かお手伝いできますか？',,
+    welcome: 'こんにちは！👋 私は物流アシスタントです。何かお手伝いできますか？',
     placeholder: 'どんな言語でも質問をどうぞ…',
     btn_servicios: 'どんなサービスがありますか？', btn_servicios_lbl: 'サービス',
     btn_descargas: '荷降ろしを予約するには？', btn_descargas_lbl: '荷降ろし',
@@ -282,19 +282,26 @@ let currentLang = 'es';
 function setLang(lang) {
   T = LANGS[lang] || LANGS.es;
   currentLang = lang;
-  // Update placeholder
   document.getElementById('ci').placeholder = T.placeholder;
-  // Update button labels
   document.querySelectorAll('[data-t]').forEach(el => {
     const key = el.getAttribute('data-t');
     if (T[key]) el.textContent = T[key];
   });
-  // Clear chat and show welcome in new language
   const box = document.getElementById('chat-msgs');
   box.innerHTML = '';
   addMsg('bot', T.welcome);
 }
-const BOT_NAME = "Resa Logistic";
+
+// Init on load with default lang
+function initLang() {
+  const sel = document.getElementById('lang-select');
+  const saved = navigator.language.slice(0,2);
+  const available = ['es','en','fr','de','ca','it','pt'];
+  const lang = available.includes(saved) ? saved : 'es';
+  sel.value = lang;
+  setLang(lang);
+}
+const BOT_NAME = "Asistente de Logística";
 
 // Imágenes de maquinaria
 const MAQUINARIA_IMGS = {
@@ -323,7 +330,7 @@ function renderMsg(text) {
   });
 }
 
-window.onload = () => { addMsg('bot', T.welcome); };
+window.onload = () => { initLang(); };
 
 function askTopic(q) {
   document.getElementById('ci').value = q;
@@ -383,10 +390,6 @@ async function send() {
   btn.disabled=false; ci.focus();
 }
 </script>
-<div style="text-align:center;padding:1rem;font-size:11px;color:#C4B8D8;font-family:'Nunito',sans-serif;">
-  <strong style="color:#A98EE8;">Resa Logistic</strong> · Puerta 3.01, Fira de Barcelona · 
-  <a href="tel:932642440" style="color:#A98EE8;text-decoration:none;">932 64 24 40</a> · 
-  <a href="mailto:logistics@rxl.es" style="color:#A98EE8;text-decoration:none;">logistics@rxl.es</a>
-</div>
+
 </body>
 </html>
