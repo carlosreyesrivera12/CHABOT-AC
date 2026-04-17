@@ -322,12 +322,17 @@ const MAQUINARIA_IMGS = {
 };
 
 function renderMsg(text) {
-  // Detecta IMAGEN:clave y la reemplaza por img+texto
-  return text.replace(/IMAGEN:(\w+)/g, (match, key) => {
+  // Convierte URLs de Google Maps en enlaces clicables
+  text = text.replace(/(📍\s*)?(https:\/\/maps\.app\.goo\.gl\/\S+)/g, (match, icon, url) => {
+    return `<a href="${url}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;background:#E8F4E8;color:#2A7A2A;padding:5px 12px;border-radius:999px;font-size:13px;font-weight:700;text-decoration:none;margin-top:6px;border:1px solid #B5EAD7;">📍 Ver en Google Maps</a>`;
+  });
+  // Detecta IMAGEN:clave y la reemplaza por img
+  text = text.replace(/IMAGEN:(\w+)/g, (match, key) => {
     const url = MAQUINARIA_IMGS[key];
     if (!url) return '';
     return `<br><img src="${url}" style="max-width:180px;border-radius:12px;margin-top:8px;box-shadow:0 3px 10px rgba(180,150,220,.2);" onerror="this.style.display='none'">`;
   });
+  return text;
 }
 
 window.onload = () => { initLang(); };
