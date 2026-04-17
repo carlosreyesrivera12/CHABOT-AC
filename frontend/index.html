@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Resa Logistic — Fira de Barcelona</title>
+<title>Asistente de Logística</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -22,17 +22,11 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);
     radial-gradient(circle at 90% 15%,rgba(201,184,245,.22) 0%,transparent 40%),
     radial-gradient(circle at 50% 95%,rgba(181,234,215,.2) 0%,transparent 40%);}
 
-.header{text-align:center;padding:1.8rem 1rem 1rem;flex-shrink:0;}
-.header-logo{width:60px;height:60px;border-radius:18px;
   background:linear-gradient(135deg,var(--lav),var(--pink-d));
   display:inline-flex;align-items:center;justify-content:center;
   font-size:28px;margin-bottom:10px;box-shadow:0 8px 22px rgba(169,142,232,.3);}
-.header h1{font-family:'Quicksand',sans-serif;font-size:1.6rem;font-weight:700;
   background:linear-gradient(135deg,#C77DFF,#FF85A1,#7DDBB8);
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:4px;}
-.header p{color:var(--text-s);font-size:.85rem;font-weight:500;}
-.lang-pills{display:flex;flex-wrap:wrap;justify-content:center;gap:5px;margin-top:8px;}
-.lang-pill{background:white;border:1.5px solid var(--border);padding:2px 10px;
   border-radius:999px;font-size:11px;font-weight:700;color:var(--text-s);
   box-shadow:0 2px 6px var(--shadow);}
 
@@ -101,30 +95,35 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);
 </style>
 </head>
 <body>
+</div>
 
-<div class="header">
-  <div class="header-logo">🏗️</div>
-  <h1>Resa Logistic</h1>
-  <p>Partner oficial de logística · Fira de Barcelona</p>
-  <div class="lang-pills">
-    <span class="lang-pill">🇪🇸 Español</span>
-    <span class="lang-pill">🇬🇧 English</span>
-    <span class="lang-pill">🇫🇷 Français</span>
-    <span class="lang-pill">🇩🇪 Deutsch</span>
-    <span class="lang-pill">🏴󠁥󠁳󠁣󠁴󠁿 Català</span>
-  </div>
+<div id="lang-bar" style="text-align:center;padding:1rem 1rem 0.2rem;flex-shrink:0;">
+  <select id="lang-select" onchange="setLang(this.value)" style="padding:8px 18px;border-radius:999px;border:1.5px solid #F0E8FF;background:white;font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;color:#7E6E96;cursor:pointer;outline:none;box-shadow:0 2px 8px rgba(180,150,220,0.13);">
+    <option value="es">🇪🇸 Español</option>
+    <option value="en">🇬🇧 English</option>
+    <option value="fr">🇫🇷 Français</option>
+    <option value="de">🇩🇪 Deutsch</option>
+    <option value="it">🇮🇹 Italiano</option>
+    <option value="pt">🇵🇹 Português</option>
+    <option value="pl">🇵🇱 Polski</option>
+    <option value="nl">🇳🇱 Nederlands</option>
+    <option value="zh">🇨🇳 中文</option>
+    <option value="ar">🇸🇦 العربية</option>
+    <option value="ja">🇯🇵 日本語</option>
+    <option value="ru">🇷🇺 Русский</option>
+  </select>
 </div>
 
 <div class="wrap">
   <div class="card">
     <div class="topics" id="topics">
-      <button class="topic-btn" onclick="askTopic('¿Qué servicios ofrecen?')">📦 Servicios</button>
-      <button class="topic-btn" onclick="askTopic('¿Cómo reservo una descarga de camión?')">🚛 Descargas</button>
-      <button class="topic-btn" onclick="askTopic('¿Cómo alquilo maquinaria?')">🏗️ Maquinaria</button>
-      <button class="topic-btn" onclick="askTopic('¿Cómo funciona el almacenaje?')">🗄️ Almacenaje</button>
-      <button class="topic-btn" onclick="askTopic('¿Dónde están las oficinas?')">📍 Oficinas</button>
-      <button class="topic-btn" onclick="askTopic('¿Cuáles son los horarios?')">🕐 Horarios</button>
-      <button class="topic-btn" onclick="askTopic('¿Cómo entra un camión en la Fira?')">🚛 Acceso camiones</button>
+      <button class="topic-btn" onclick="askTopic(T.btn_servicios)">📦 <span data-t="btn_servicios_lbl">Servicios</span></button>
+      <button class="topic-btn" onclick="askTopic(T.btn_descargas)">🚚 <span data-t="btn_descargas_lbl">Descargas</span></button>
+      <button class="topic-btn" onclick="askTopic(T.btn_maquinaria)">🏗️ <span data-t="btn_maquinaria_lbl">Maquinaria</span></button>
+      <button class="topic-btn" onclick="askTopic(T.btn_almacenaje)">🗄️ <span data-t="btn_almacenaje_lbl">Almacenaje</span></button>
+      <button class="topic-btn" onclick="askTopic(T.btn_oficinas)">📍 <span data-t="btn_oficinas_lbl">Oficinas</span></button>
+      <button class="topic-btn" onclick="askTopic(T.btn_horarios)">🕐 <span data-t="btn_horarios_lbl">Horarios</span></button>
+      <button class="topic-btn" onclick="askTopic(T.btn_camiones)">🚛 <span data-t="btn_camiones_lbl">Acceso camiones</span></button>
     </div>
 
     <div id="chat-msgs" class="chat-msgs"></div>
@@ -141,6 +140,160 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);
 
 <script>
 const API_URL = "https://chabot-ac.vercel.app/api/chat";
+
+const LANGS = {
+  es: {
+    welcome: '¡Hola! 👋 Soy el asistente de Logística. ¿En qué puedo ayudarte hoy?',
+    placeholder: 'Escribe tu consulta en cualquier idioma…',
+    btn_servicios: '¿Qué servicios ofrecen?', btn_servicios_lbl: 'Servicios',
+    btn_descargas: '¿Cómo reservo una descarga?', btn_descargas_lbl: 'Descargas',
+    btn_maquinaria: '¿Qué maquinaria tienen?', btn_maquinaria_lbl: 'Maquinaria',
+    btn_almacenaje: '¿Cómo funciona el almacenaje?', btn_almacenaje_lbl: 'Almacenaje',
+    btn_oficinas: '¿Dónde están las oficinas?', btn_oficinas_lbl: 'Oficinas',
+    btn_horarios: '¿Cuáles son los horarios?', btn_horarios_lbl: 'Horarios',
+    btn_camiones: '¿Cómo entra un camión en la Fira?', btn_camiones_lbl: 'Acceso camiones',
+  },
+  en: {
+    welcome: 'Hello! 👋 I am the Logistics assistant. How can I help you today?',
+    placeholder: 'Type your question in any language…',
+    btn_servicios: 'What services do you offer?', btn_servicios_lbl: 'Services',
+    btn_descargas: 'How do I book an unloading?', btn_descargas_lbl: 'Unloading',
+    btn_maquinaria: 'What machinery do you have?', btn_maquinaria_lbl: 'Machinery',
+    btn_almacenaje: 'How does storage work?', btn_almacenaje_lbl: 'Storage',
+    btn_oficinas: 'Where are the offices?', btn_oficinas_lbl: 'Offices',
+    btn_horarios: 'What are the opening hours?', btn_horarios_lbl: 'Hours',
+    btn_camiones: 'How does a truck enter the Fira?', btn_camiones_lbl: 'Truck access',
+  },
+  fr: {
+    welcome: "Bonjour! 👋 Je suis l'assistant Logistique. Comment puis-je vous aider?",
+    placeholder: "Écrivez votre question dans n'importe quelle langue…",
+    btn_servicios: 'Quels services proposez-vous?', btn_servicios_lbl: 'Services',
+    btn_descargas: 'Comment réserver un déchargement?', btn_descargas_lbl: 'Déchargement',
+    btn_maquinaria: 'Quelles machines avez-vous?', btn_maquinaria_lbl: 'Machines',
+    btn_almacenaje: 'Comment fonctionne le stockage?', btn_almacenaje_lbl: 'Stockage',
+    btn_oficinas: 'Où sont les bureaux?', btn_oficinas_lbl: 'Bureaux',
+    btn_horarios: 'Quels sont les horaires?', btn_horarios_lbl: 'Horaires',
+    btn_camiones: 'Comment un camion entre à la Fira?', btn_camiones_lbl: 'Accès camions',
+  },
+  de: {
+    welcome: 'Hallo! 👋 Ich bin der Logistik-Assistent. Wie kann ich Ihnen helfen?',
+    placeholder: 'Schreiben Sie Ihre Frage in beliebiger Sprache…',
+    btn_servicios: 'Welche Dienste bieten Sie an?', btn_servicios_lbl: 'Dienste',
+    btn_descargas: 'Wie buche ich eine Entladung?', btn_descargas_lbl: 'Entladung',
+    btn_maquinaria: 'Welche Maschinen haben Sie?', btn_maquinaria_lbl: 'Maschinen',
+    btn_almacenaje: 'Wie funktioniert die Lagerung?', btn_almacenaje_lbl: 'Lagerung',
+    btn_oficinas: 'Wo sind die Büros?', btn_oficinas_lbl: 'Büros',
+    btn_horarios: 'Was sind die Öffnungszeiten?', btn_horarios_lbl: 'Zeiten',
+    btn_camiones: 'Wie kommt ein LKW auf die Fira?', btn_camiones_lbl: 'LKW-Zugang',
+  },
+  pl: {
+    welcome: 'Cześć! 👋 Jestem asystentem Logistyki. Jak mogę Ci pomóc?',
+    placeholder: 'Napisz swoje pytanie w dowolnym języku…',
+    btn_servicios: 'Jakie usługi oferujecie?', btn_servicios_lbl: 'Usługi',
+    btn_descargas: 'Jak zarezerwować rozładunek?', btn_descargas_lbl: 'Rozładunek',
+    btn_maquinaria: 'Jakie maszyny macie?', btn_maquinaria_lbl: 'Maszyny',
+    btn_almacenaje: 'Jak działa magazynowanie?', btn_almacenaje_lbl: 'Magazyn',
+    btn_oficinas: 'Gdzie są biura?', btn_oficinas_lbl: 'Biura',
+    btn_horarios: 'Jakie są godziny pracy?', btn_horarios_lbl: 'Godziny',
+    btn_camiones: 'Jak ciężarówka wjeżdża na Fira?', btn_camiones_lbl: 'Dostęp ciężarówek',
+  },
+  nl: {
+    welcome: 'Hallo! 👋 Ik ben de Logistiek assistent. Hoe kan ik u helpen?',
+    placeholder: 'Schrijf uw vraag in elke taal…',
+    btn_servicios: 'Welke diensten biedt u aan?', btn_servicios_lbl: 'Diensten',
+    btn_descargas: 'Hoe boek ik een lossing?', btn_descargas_lbl: 'Lossing',
+    btn_maquinaria: 'Welke machines heeft u?', btn_maquinaria_lbl: 'Machines',
+    btn_almacenaje: 'Hoe werkt opslag?', btn_almacenaje_lbl: 'Opslag',
+    btn_oficinas: 'Waar zijn de kantoren?', btn_oficinas_lbl: 'Kantoren',
+    btn_horarios: 'Wat zijn de openingstijden?', btn_horarios_lbl: 'Tijden',
+    btn_camiones: 'Hoe komt een vrachtwagen de Fira in?', btn_camiones_lbl: 'Vrachtwagentoegang',
+  },
+  zh: {
+    welcome: 'elcome: '您好！👋 我是Logística的助手，巴塞罗那国际展览中心官方物流合作伙伴。有什么可以帮助您的吗？',,
+    placeholder: '请用任何语言提问…',
+    btn_servicios: '你们提供哪些服务？', btn_servicios_lbl: '服务',
+    btn_descargas: '如何预约卸货？', btn_descargas_lbl: '卸货',
+    btn_maquinaria: '有哪些机械设备？', btn_maquinaria_lbl: '机械',
+    btn_almacenaje: '包装储存如何运作？', btn_almacenaje_lbl: '储存',
+    btn_oficinas: '办公室在哪里？', btn_oficinas_lbl: '办公室',
+    btn_horarios: '工作时间是什么？', btn_horarios_lbl: '时间',
+    btn_camiones: '卡车如何进入展览中心？', btn_camiones_lbl: '卡车通道',
+  },
+  ar: {
+    welcome: 'elcome: 'مرحباً! 👋 أنا مساعد Logística، الشريك الرسمي للوجستيات في معرض برشلونة. كيف يمكنني مساعدتك؟',,
+    placeholder: 'اكتب سؤالك بأي لغة…',
+    btn_servicios: 'ما هي الخدمات المقدمة؟', btn_servicios_lbl: 'الخدمات',
+    btn_descargas: 'كيف أحجز عملية تفريغ؟', btn_descargas_lbl: 'التفريغ',
+    btn_maquinaria: 'ما هي الآلات المتوفرة؟', btn_maquinaria_lbl: 'الآلات',
+    btn_almacenaje: 'كيف يعمل التخزين؟', btn_almacenaje_lbl: 'التخزين',
+    btn_oficinas: 'أين توجد المكاتب؟', btn_oficinas_lbl: 'المكاتب',
+    btn_horarios: 'ما هي ساعات العمل؟', btn_horarios_lbl: 'الساعات',
+    btn_camiones: 'كيف تدخل الشاحنة إلى المعرض؟', btn_camiones_lbl: 'دخول الشاحنات',
+  },
+  ja: {
+    welcome: 'elcome: 'こんにちは！👋 私はLogísticaのアシスタントです。バルセロナ見本市の公式物流パートナーです。何かお手伝いできますか？',,
+    placeholder: 'どんな言語でも質問をどうぞ…',
+    btn_servicios: 'どんなサービスがありますか？', btn_servicios_lbl: 'サービス',
+    btn_descargas: '荷降ろしを予約するには？', btn_descargas_lbl: '荷降ろし',
+    btn_maquinaria: 'どんな機械がありますか？', btn_maquinaria_lbl: '機械',
+    btn_almacenaje: '梱包保管はどのように機能しますか？', btn_almacenaje_lbl: '保管',
+    btn_oficinas: 'オフィスはどこですか？', btn_oficinas_lbl: 'オフィス',
+    btn_horarios: '営業時間は何時ですか？', btn_horarios_lbl: '時間',
+    btn_camiones: 'トラックはどのようにFiraに入りますか？', btn_camiones_lbl: 'トラックアクセス',
+  },
+  ru: {
+    welcome: 'Привет! 👋 Я ассистент по логистике. Чем могу помочь?',
+    placeholder: 'Напишите свой вопрос на любом языке…',
+    btn_servicios: 'Какие услуги вы предоставляете?', btn_servicios_lbl: 'Услуги',
+    btn_descargas: 'Как забронировать разгрузку?', btn_descargas_lbl: 'Разгрузка',
+    btn_maquinaria: 'Какая техника доступна?', btn_maquinaria_lbl: 'Техника',
+    btn_almacenaje: 'Как работает хранение?', btn_almacenaje_lbl: 'Хранение',
+    btn_oficinas: 'Где находятся офисы?', btn_oficinas_lbl: 'Офисы',
+    btn_horarios: 'Каковы часы работы?', btn_horarios_lbl: 'Часы',
+    btn_camiones: 'Как грузовик въезжает на Fira?', btn_camiones_lbl: 'Въезд грузовиков',
+  },
+  it: {
+    welcome: "Ciao! 👋 Sono l'assistente Logistico. Come posso aiutarti?",
+    placeholder: 'Scrivi la tua domanda in qualsiasi lingua…',
+    btn_servicios: 'Quali servizi offrite?', btn_servicios_lbl: 'Servizi',
+    btn_descargas: 'Come prenoto uno scarico?', btn_descargas_lbl: 'Scarico',
+    btn_maquinaria: 'Che macchinari avete?', btn_maquinaria_lbl: 'Macchinari',
+    btn_almacenaje: 'Come funziona il magazzinaggio?', btn_almacenaje_lbl: 'Magazzino',
+    btn_oficinas: 'Dove sono gli uffici?', btn_oficinas_lbl: 'Uffici',
+    btn_horarios: 'Quali sono gli orari?', btn_horarios_lbl: 'Orari',
+    btn_camiones: 'Come entra un camion alla Fira?', btn_camiones_lbl: 'Accesso camion',
+  },
+  pt: {
+    welcome: 'Olá! 👋 Sou o assistente de Logística. Como posso ajudá-lo?',
+    placeholder: 'Escreva sua consulta em qualquer idioma…',
+    btn_servicios: 'Que serviços oferecem?', btn_servicios_lbl: 'Serviços',
+    btn_descargas: 'Como reservo uma descarga?', btn_descargas_lbl: 'Descargas',
+    btn_maquinaria: 'Que maquinaria têm?', btn_maquinaria_lbl: 'Maquinaria',
+    btn_almacenaje: 'Como funciona o armazenamento?', btn_almacenaje_lbl: 'Armazenamento',
+    btn_oficinas: 'Onde estão os escritórios?', btn_oficinas_lbl: 'Escritórios',
+    btn_horarios: 'Quais são os horários?', btn_horarios_lbl: 'Horários',
+    btn_camiones: 'Como entra um caminhão na Fira?', btn_camiones_lbl: 'Acesso caminhões',
+  }
+};
+
+let T = LANGS.es;
+let currentLang = 'es';
+
+function setLang(lang) {
+  T = LANGS[lang] || LANGS.es;
+  currentLang = lang;
+  // Update placeholder
+  document.getElementById('ci').placeholder = T.placeholder;
+  // Update button labels
+  document.querySelectorAll('[data-t]').forEach(el => {
+    const key = el.getAttribute('data-t');
+    if (T[key]) el.textContent = T[key];
+  });
+  // Clear chat and show welcome in new language
+  const box = document.getElementById('chat-msgs');
+  box.innerHTML = '';
+  addMsg('bot', T.welcome);
+}
 const BOT_NAME = "Resa Logistic";
 
 // Imágenes de maquinaria
@@ -170,9 +323,7 @@ function renderMsg(text) {
   });
 }
 
-window.onload = () => {
-  addMsg('bot', '¡Hola! 👋 Soy el asistente de <strong>Resa Logistic</strong>, partner oficial de logística en Fira de Barcelona. Puedo ayudarte con información sobre descargas, maquinaria, almacenaje y más. ¿En qué puedo ayudarte hoy?');
-};
+window.onload = () => { addMsg('bot', T.welcome); };
 
 function askTopic(q) {
   document.getElementById('ci').value = q;
