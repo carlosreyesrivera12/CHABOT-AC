@@ -197,6 +197,24 @@ A: El evento ocupa varios halls del recinto Gran Via. Para información específ
 
 [EV5] Q: ¿Cómo llego al Seafood Expo Global?
 A: El recinto Fira Gran Via está conectado por metro líneas L9 y L10. Si viene con camión o vehículo de servicio, debe registrarse primero en el Parking del Sot del Migdia (Carrer del Foc 140). 📍 https://maps.app.goo.gl/pFC3TDEkVSztsBdq7
+
+[EV6] Q: ¿Cuántos expositores tiene el Seafood Expo Global 2026?
+A: El Seafood Expo Global 2026 cuenta con más de 2.000 expositores de todo el mundo, distribuidos en los halls 1 al 5 de Fira Gran Via. Para ver el directorio completo visita: https://www.seafoodexpo.com/global/
+
+[EV7] Q: ¿En qué stand está Mowi? ¿Dónde está el stand de Mowi?
+A: Mowi ASA está en el stand 3B401 (Halls 3B). Incluye Mowi Belgium, France, Germany, Iberia, Poland, Consumer Products UK y Markets Norway AS, todos en el mismo stand 3B401.
+
+[EV8] Q: ¿Dónde está el stand de Nueva Pescanova?
+A: Nueva Pescanova está en el stand 3F601.
+
+[EV9] Q: ¿Dónde está el stand de Royal Greenland?
+A: Royal Greenland A/S está en el stand 2F201.
+
+[EV10] Q: ¿Dónde está el stand de Clearwater?
+A: Clearwater Seafoods está en el stand 3A801.
+
+[EV11] Q: ¿Cómo busco el stand de un expositor?
+A: Puedes buscar el stand de cualquier expositor en el directorio oficial del evento: https://www.seafoodexpo.com/global/ — también puedes preguntarme directamente por el nombre de la empresa.
 `,
 
     contacto: `
@@ -212,7 +230,7 @@ A: Oficina Central: Puerta 3.01. Hall 1: Puerta 1.01, Hall 2: Puerta 2.19, Hall 
 
   if (msg.match(/fira|recinto|hall|montjuic|montjuïc|gran via|resa expo|partner|quien es|quién es|cc2|cc7|cc8|walkway|suite|loading|emergencia|electricidad|internet|wifi|acceso|accesibilidad|normativa|ascensor|parking fira/)) {
     context = KB.fira + '\n' + KB.contacto;
-  } else if (msg.match(/seafood|expo|feria|evento|cuando|fechas|pabellon|pabellón|donde.*celebra/)) {
+  } else if (msg.match(/seafood|expo|feria|evento|cuando|fechas|pabellon|pabellón|donde.*celebra|stand|expositor|empresa|booth/)) {
     context = KB.evento + '\n' + KB.fira;
   } else if (msg.match(/camion|trailer|tráiler|truck|camión|chofer|conductor|sot|booking|referencia|albaran|albarán|pase|ingreso|registro|parking|acceso vehiculo|furgoneta/)) {
     context = KB.camiones + '\n' + KB.general;
@@ -228,6 +246,34 @@ A: Oficina Central: Puerta 3.01. Hall 1: Puerta 1.01, Hall 2: Puerta 2.19, Hall 
     // Si no detecta categoría, usa todo pero comprimido
     context = KB.general + '\n' + KB.descarga + '\n' + KB.maquinaria + '\n' + KB.embalaje + '\n' + KB.camiones + '\n' + KB.contacto;
   }
+
+  // ── DYNAMIC EXHIBITOR LOOKUP ──────────────────────────────────────
+  // Check if question is about an exhibitor/stand BEFORE calling AI
+  const msgLower = message.toLowerCase();
+  if (msgLower.match(/stand|expositor|booth|donde.*empresa|empresa.*donde|hall.*empresa|que stand|numero.*stand|stand.*numero/)) {
+    try {
+      const csvUrl = 'https://docs.google.com/spreadsheets/d/1B0eVdT2kvTgQrxXNaUF0PtCz6g7wp83H6SQ262H8aH0/export?format=csv&id=1B0eVdT2kvTgQrxXNaUF0PtCz6g7wp83H6SQ262H8aH0';
+      const csvRes = await fetch(csvUrl);
+      const csvText = await csvRes.text();
+      const lines = csvText.trim().split('\n').slice(1); // skip header
+      const searchTerm = message.replace(/¿|\?|stand|expositor|booth|donde|está|esta|hall|número|numero/gi,'').trim().toLowerCase();
+      const matches = lines.filter(line => {
+        const empresa = line.split(',')[0].toLowerCase();
+        return searchTerm.split(' ').some(word => word.length > 3 && empresa.includes(word));
+      }).slice(0, 5);
+
+      if (matches.length > 0) {
+        const results = matches.map(line => {
+          const parts = line.split(',');
+          return `<strong>${parts[0]}</strong> → Stand <strong>${parts[1]}</strong>`;
+        }).join('<br>');
+        return res.status(200).json({ reply: `📋 Resultados para "${searchTerm}":<br><br>${results}<br><br>Seafood Expo Global 2026 · Fira Barcelona Gran Via · 21-23 abril` });
+      }
+    } catch(e) {
+      console.error('Exhibitor lookup error:', e);
+    }
+  }
+  // ────────────────────────────────────────────────────────────────
 
   const systemPrompt = `You are a logistics assistant. Your name is "Asistente de Logística".
 

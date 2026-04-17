@@ -378,6 +378,59 @@ function addThinking() {
   box.appendChild(row); box.scrollTop=box.scrollHeight;
 }
 
+const EXHIBITORS = {
+  "mowi": ["Mowi ASA","3B401"],
+  "nueva pescanova": ["Nueva Pescanova","3F601"],
+  "royal greenland": ["Royal Greenland A/S","2F201"],
+  "clearwater": ["Clearwater Seafoods","3A801"],
+  "cooke": ["Cooke","3F201"],
+  "leroy": ["Leroy Seafood Group ASA","2G601"],
+  "salmar": ["SalMar AS","1A701"],
+  "bakkafrost": ["Bakkafrost","2H201"],
+  "baader": ["BAADER","3JJ601"],
+  "trident": ["Trident Seafoods","5B301"],
+  "pacific seafood": ["Pacific Seafood Group","5B301"],
+  "thai union": ["Thai Union Poland","4F401"],
+  "minh phu": ["Minh Phu Seafood Corp","4B501"],
+  "vinh hoan": ["Vinh Hoan Corporation","3M800"],
+  "grieg": ["Grieg Seafood ASA","2F701"],
+  "austevoll": ["Austevoll","2F401"],
+  "cermaq": ["Cermaq Norway AS","2F200"],
+  "maersk": ["Maersk A/S","3DD701"],
+  "cma cgm": ["CMA CGM","3KK601"],
+  "dp world": ["DP World","1D407"],
+  "aker biomarine": ["Aker BioMarine","2F401"],
+  "msc": ["MSC Mediterranean Shipping","3HH601"],
+  "blumar": ["Blumar","2G100"],
+  "iberconsa": ["IBERCONSA","3L601"],
+  "frinsa": ["FRINSA","1D701"],
+  "congalsa": ["Congalsa SL","5F501"],
+  "angulas aguinaga": ["Angulas Aguinaga S.A.U.","3N700"],
+  "conservas ortiz": ["Conservas Ortiz","4G301"],
+  "grupo ricardo fuentes": ["GRUPO RICARDO FUENTES","4G401"],
+  "pescanova": ["Nueva Pescanova","3F601"],
+  "viciunai": ["Viciunai Group","3A401"],
+  "austral": ["Austral Fisheries","GB305"],
+  "salmones": ["Salmones Aysen S.A.","4A501"],
+  "camanchaca": ["Camanchaca S.A.","4D601"],
+  "multiexport": ["Multi X","3I401"],
+  "skretting": ["Skretting","3EE201"],
+  "biomar": ["BioMar A/S","3EE201"],
+  "alltech": ["Alltech Coppens BV","3NN903"],
+  "mowi iberia": ["Mowi Iberia","3B401"],
+  "seafood expo": ["Seafood Expo Global/Processing Global","GA400"],
+};
+
+function findExhibitor(text) {
+  const t = text.toLowerCase();
+  for (const [key, val] of Object.entries(EXHIBITORS)) {
+    if (t.includes(key)) {
+      return val;
+    }
+  }
+  return null;
+}
+
 async function send() {
   const ci=document.getElementById('ci'), btn=document.getElementById('sbtn');
   const txt=ci.value.trim();
@@ -385,6 +438,14 @@ async function send() {
   ci.value=''; btn.disabled=true;
   document.getElementById('lang-det').textContent='';
   addMsg('user', txt);
+
+  // Check exhibitor lookup first (no API needed)
+  const exhib = findExhibitor(txt);
+  if (exhib && txt.toLowerCase().match(/stand|expositor|donde|hall|ubicacion|booth|where/)) {
+    addMsg('bot', `<strong>${exhib[0]}</strong> está en el stand <strong>${exhib[1]}</strong> en el Seafood Expo Global 2026. 📍 Fira Barcelona Gran Via, 21-23 abril 2026.`);
+    btn.disabled=false; ci.focus(); return;
+  }
+
   addThinking();
 
   try {
