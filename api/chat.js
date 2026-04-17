@@ -22,11 +22,11 @@ A: Por correo electrónico indicando: evento, empresa, montador, expositor, pabe
 [P4] Q: ¿Cómo reservo una descarga o carga?
 A: Enviando correo con: número de booking, evento, empresa, expositor, pabellón, stand, día y hora.
 [P5] Q: ¿Qué horarios hay para descarga/carga?
-A: Aproximadamente 8:00 a 20:00h gestionados por Fira de Barcelona. Horarios especiales requieren confirmación previa.
+A: Aproximadamente 8:00 a 20:00h gestionados por la organización. Horarios especiales requieren confirmación previa.
 [P6] Q: ¿Puedo cambiar fecha u hora?
 A: Sí, con 24-48h de anticipación. Si requiere permiso Early/Late Buildup no es posible sin autorización de Fira.
 [P7] Q: ¿Qué es un permiso Early o Late Buildup?
-A: Permisos especiales para trabajar fuera del horario habitual (8-20h). Requieren autorización de Fira de Barcelona.`,
+A: Permisos especiales para trabajar fuera del horario habitual (8-20h). Requieren autorización de la organización.`,
 
     maquinaria: `
 [P9] Q: ¿Con cuánta anticipación pido maquinaria?
@@ -64,9 +64,9 @@ A: Una etiqueta oficial por bulto. Sin etiqueta no se retira el material.
 [E1] Q: ¿En qué orden se devuelven los embalajes?
 A: 1º PRIORITY, 2º FULLGOOD, 3º EMPTY. Contrate según la urgencia que necesite.
 [E6] Q: ¿Puedo acceder a mi material almacenado?
-A: Sí, pero debe informar primero al Hall Manager. No se permite ingresar sin presencia del personal de Resa Logistic.
+A: Sí, pero debe informar primero al Hall Manager. No se permite ingresar sin presencia del personal de logística.
 [E7] Q: ¿Puedo retirar algo del almacén?
-A: Solo en presencia del personal de Resa Logistic. Prohibido acceder sin acompañamiento para evitar robos o daños.
+A: Solo en presencia del personal de logística. Prohibido acceder sin acompañamiento para evitar robos o daños.
 [E10] Q: ¿El seguro cubre la pérdida?
 A: Cubre el embalaje (NO el contenido). Máximo 100€ por caja. Reclamaciones solo hasta 24h después del cierre del evento.
 [E11] Q: Etiqueté mal mi material, ¿qué pasa?
@@ -124,7 +124,7 @@ A: Oficina Central: Puerta 3.01. Hall 1: Puerta 1.01, Hall 2: Puerta 2.19, Hall 
     context = KB.general + '\n' + KB.descarga + '\n' + KB.maquinaria + '\n' + KB.embalaje + '\n' + KB.camiones + '\n' + KB.contacto;
   }
 
-  const systemPrompt = `You are a logistics assistant named "${botName || 'Resa Logistic'}" for Fira de Barcelona.
+  const systemPrompt = `You are a logistics assistant. Your name is "Asistente de Logística".
 
 CRITICAL LANGUAGE RULE: Always respond in the EXACT same language as the user's message.
 
