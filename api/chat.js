@@ -102,6 +102,64 @@ A: Vehículo de mayor longitud. También debe pasar por el Sot del Migdia. IMAGE
 A: Si su booking no especifica las dos ubicaciones, contacte inmediatamente con la oficina para modificarlo. No se puede trabajar en dos pabellones con una reserva que indica solo uno. Llame al 932 64 24 40 o escriba a logistics@rxl.es`,
 
     fira: `
+[F1] Q: ¿Qué es Fira de Barcelona?
+A: Fira de Barcelona es uno de los recintos feriales más importantes de Europa con dos recintos: Gran Via (L'Hospitalet, 198.500m²) y Montjuïc (Barcelona). Acoge más de 150 eventos al año con millones de visitantes internacionales.
+
+[F2] Q: ¿Cómo llegar a Fira Gran Via?
+A: Metro L9/L10 estaciones Europa/Fira, Fira e Ildefons Cerdà. Autobús líneas B10, B20. Autopistas C-31/C-32/A-2. Aeropuerto El Prat a 12km por metro directo (15-20 min).
+
+[F3] Q: ¿Cuántos halls tiene Fira Gran Via?
+A: 8 halls interconectados (Hall 1 al 8), más centros de conferencias CC1 al CC8, suites Barcelona, Europa y Tibidabo, jardines A-G y walkway superior. Superficie total 198.500m².
+
+[F4] Q: ¿Qué capacidad tienen los halls?
+A: Hall 1: 14.000m², resistencia 3.000kg/m². Hall 3: 43.000m², resistencia 5.000kg/m². Los halls están conectados entre sí por el walkway superior e inferior.
+
+[F5] Q: ¿Dónde está el Hall Manager de cada pabellón?
+A: Hall 1: Puerta 1.01 · Hall 2: Puerta 2.19 · Hall 3: Puerta 3.14 · Hall 4: Puerta 4.8 · Hall 5: Puerta 5.8.
+
+[F6] Q: ¿Qué accesos tiene Fira Gran Via?
+A: 3 accesos principales: Sur (entrada principal), Norte y Este. Cada uno conecta con diferentes halls y zonas del recinto.
+
+[F7] Q: ¿Tiene parking Fira Gran Via?
+A: Sí. Para vehículos de servicio con booking deben registrarse en el Parking del Sot del Migdia, Carrer del Foc 140, abierto de 6:30 a 20:00h todos los días. 📍 https://maps.app.goo.gl/pFC3TDEkVSztsBdq7
+
+[F8] Q: ¿Cuáles son las normas de electricidad en los halls?
+A: Los service chests tienen: 1x63A, 2x32A, 4x16A, aire comprimido (500-800 l/m, 7 bar) y agua. Las conexiones deben hacerlas instaladores autorizados de Fira. Conexiones hasta 63A mediante clavija CEE.
+
+[F9] Q: ¿Qué hacer en caso de emergencia en la Fira?
+A: Llamar al Centro de Control Gran Via: 93 233 41 00 o usar los pulsadores de emergencia. No bloquear salidas. Seguir instrucciones de megafonía y personal uniformado. No usar ascensores. Ir al punto de encuentro designado.
+
+[F10] Q: ¿Qué es el walkway de Gran Via?
+A: El walkway es la galería superior que conecta todos los halls. Incluye jardines A-G, acceso a suites y centros de conferencias. Pantallas TV distribuidas por todo el recorrido.
+
+[F11] Q: ¿Qué centros de conferencias tiene Gran Via?
+A: CC2 (auditorium 465 personas, 13 salas), CC3, CC4, CC5, CC7 (hasta 222 personas), CC8 (planta baja y alta). Todos conectados a los halls principales.
+
+[F12] Q: ¿Qué suites tiene Fira Gran Via?
+A: Barcelona Suite, Europa Suite y Tibidabo Suite. Espacios premium para eventos exclusivos y reuniones VIP.
+
+[F13] Q: ¿Qué es el loading bay?
+A: Zonas de carga y descarga del recinto. Cada hall tiene puertas de servicio para vehículos. Obligatorio tener booking. Horario 8:00 a 20:00h.
+
+[F14] Q: ¿Hay ascensores de carga?
+A: Sí, en Hall 8.1 hay freight lifts de 4.000 y 6.000 kg. Solo para mercancía — prohibido con personal dentro. Las líneas amarillas del suelo no deben ser cruzadas por la carga.
+
+[F15] Q: ¿Qué normativa debo cumplir como expositor?
+A: Los expositores deben cumplir la normativa de Fira en construcción de stands, instalaciones eléctricas, seguridad contra incendios y accesibilidad. Toda documentación debe presentarse antes del montaje.
+
+[F16] Q: ¿Hay internet en la Fira?
+A: Sí, Fira ofrece servicios de internet por cable y WiFi para expositores y organizadores. Se contratan a través del catálogo oficial de servicios.
+
+[F17] Q: ¿Qué es el CC2 de Fira Gran Via?
+A: Centro de conferencias en Hall 2 con auditorium de 465 personas, 13 salas y 1.500m² flexibles. Diseñado por el arquitecto Toyo Ito. Conectado a Hall 2.1 puede ampliarse a 5.000m².
+
+[F18] Q: ¿Cómo es la accesibilidad en Fira Gran Via?
+A: El recinto tiene accesos adaptados para personas con movilidad reducida, ascensores, rampas y señalética específica en todos los halls y accesos principales.
+
+[F19] Q: ¿Cuál es la diferencia entre Gran Via y Montjuïc?
+A: Gran Via (L'Hospitalet): recinto moderno, 8 halls, 198.500m², metro L9/L10. Montjuïc (Barcelona): recinto histórico junto a Plaza España, metro L1/L3 estación Espanya.`,
+
+    evento: `
 [F1] Q: ¿Qué es Fira de Barcelona? ¿Qué es la Fira?
 A: Fira de Barcelona es uno de los recintos feriales más importantes de Europa. Cuenta con dos recintos: Gran Via (L'Hospitalet, 200.000m²) y Montjuïc (Barcelona). Acoge más de 150 eventos al año con más de 4 millones de visitantes.
 
@@ -152,7 +210,7 @@ A: Oficina Central: Puerta 3.01. Hall 1: Puerta 1.01, Hall 2: Puerta 2.19, Hall 
   const msg = message.toLowerCase();
   let context = '';
 
-  if (msg.match(/fira|recinto|hall|montjuic|montjuïc|gran via|resa expo|partner|quien es|quién es/)) {
+  if (msg.match(/fira|recinto|hall|montjuic|montjuïc|gran via|resa expo|partner|quien es|quién es|cc2|cc7|cc8|walkway|suite|loading|emergencia|electricidad|internet|wifi|acceso|accesibilidad|normativa|ascensor|parking fira/)) {
     context = KB.fira + '\n' + KB.contacto;
   } else if (msg.match(/seafood|expo|feria|evento|cuando|fechas|pabellon|pabellón|donde.*celebra/)) {
     context = KB.evento + '\n' + KB.fira;
